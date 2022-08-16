@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Список студентов</title>
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script defer type="module" src="js/main.js"></script>
+</head>
+
+<body>
+  <section class="main">
+    <div class="container row">
+      <h1 class="title">База данных студентов</h1>
+
+      <div class="form-valid screen col-md-4 shadow pt-3 pb-3">
+        <form class=" row g-3" action="" id="add-student">
+          <h4>Добавить студента</h4>
+          <div class="col-12">
+            <input class="input form-control" id="input-surname" type="text" placeholder="Фамилия" required>
+          </div>
+          <div class="col-12">
+            <input class="input form-control" id="input-name" type="text" placeholder="Имя" required>
+          </div>
+          <div class="col-12">
+            <input class="input form-control" id="input-lastname" type="text" placeholder="Отчество" required>
+          </div>
+          <div class="col-12">
+            <div class="birthday-input-control input-group">
+              <span class="input-group-text">Дата рождения</span>
+              <input class="birthday-input input form-control" id="input-birthData" type="date" min="1900-01-01"
+                required>
+              <span class="birthday-incorrect">Некорректная дата рождения</span>
+            </div>
+          </div>
+          <div class="year-input-control col-12">
+            <input class="year-input input form-control" id="input-yearOfEnroll" type="number"
+              placeholder="Год начала обучения" min="2000" required>
+            <span class="year-incorrect">Некорректный год начала обучения</span>
+          </div>
+          <div class="col-12">
+            <input class="input form-control" id="input-faculty" type="text" placeholder="Факультет" required>
+          </div>
+          <span class="form__errors">Не все поля заполнены</span>
+          <span class="input__error">Неправильно заполнено поле "Дата рождения" или поле "Год начала
+            обучения"</span>
+        </form>
+        <div class="valid col-12">
+          <button class="btn btn-outline-primary btn-valid">Добавить</button>
+        </div>
+      </div>
+
+      <div class="screen col-8 shadow pt-3 pb-3">
+        <h4>Поиск по таблице</h4>
+        <div class="form row g-3" action="" id="filter-form">
+          <div class="col-md-12">
+            <input class="filters__input form-control filter-fio" id="filterFio" type="text" placeholder="ФИО">
+          </div>
+          <div class="col-md-4">
+            <input class="filters__input form-control filter-faculty" id="filterFaculty" type="text"
+              placeholder="Факультет">
+          </div>
+          <div class="col-md-4">
+            <input class="filters__input form-control filter-yearOfEnroll" id="filterYearOfEnroll" type="number"
+              placeholder="Год начала обучения">
+          </div>
+          <div class="col-md-4">
+            <input class="filters__input form-control filter-yearOfGraduating" id="filterYearOfGraduating" type="number"
+              placeholder="Год окончания обучения">
+          </div>
+        </div>
+
+        <table class="students-table table table-info">
+          <thead class="table-primary">
+            <th data-column="fio"><button class="table-btn">ФИО студента</button></th>
+            <th data-column="faculty"><button class="table-btn">Факультет</button></th>
+            <th data-column="birthData"><button class="table-btn">Дата рождения (возраст)</button></th>
+            <th data-column="yearOfEnroll"><button class="table-btn">Годы обучения (№курса)</button></th>
+          </thead>
+          <tbody id="students-list"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>
